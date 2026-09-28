@@ -1,0 +1,2 @@
+# Documentation/reference only; not intended for local installation.
+# Add dependency references here as the project develops.
