@@ -1,0 +1,62 @@
+/* Токены: холодная бумага, чернила, жёлтый маркер — визуальный язык «найденного фрагмента» */
+:root {
+  --paper: #edf0f3;
+  --sheet: #fbfcfd;
+  --ink: #1b2430;
+  --graphite: #586374;
+  --rule: #d3d9e0;
+  --marker: #f2e25c;
+  --action: #2e55c7;
+  --action-ink: #ffffff;
+  --error: #b3261e;
+  --error-bg: #fbeaea;
+
+  --serif: "Literata", Georgia, serif;
+  --sans: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #12161c;
+    --sheet: #1a2029;
+    --ink: #e4e8ee;
+    --graphite: #98a3b3;
+    --rule: #2b333f;
+    --marker: rgba(232, 214, 74, 0.38);
+    --action: #8ca6ff;
+    --action-ink: #0e1420;
+    --error: #f2b8b5;
+    --error-bg: #3a1a19;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--action);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

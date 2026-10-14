@@ -1,0 +1,614 @@
+/* ---------- Общее ---------- */
+h1,
+h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.muted {
+  color: var(--graphite);
+  margin: 0;
+}
+
+.hint {
+  color: var(--graphite);
+  font-size: 0.875rem;
+  margin: 8px 0 0;
+}
+
+.error {
+  margin: 16px 0 0;
+  padding: 12px 16px;
+  color: var(--error);
+  background: var(--error-bg);
+  border-radius: 6px;
+}
+
+.error p {
+  margin: 0;
+}
+
+.error button {
+  margin-top: 12px;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.primary {
+  padding: 12px 28px;
+  font-weight: 600;
+  color: var(--action-ink);
+  background: var(--action);
+  border: none;
+  border-radius: 6px;
+}
+
+.secondary {
+  padding: 8px 16px;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+}
+
+.screen {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 32px 16px 48px;
+}
+
+/* ---------- Лендинг ---------- */
+.landing {
+  min-height: 100vh;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 48px 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 64px;
+}
+
+.landing h1 {
+  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.lead {
+  max-width: 34rem;
+  font-size: 1.125rem;
+  margin: 0 0 32px;
+}
+
+.fine-print {
+  max-width: 30rem;
+  margin: 24px 0 0;
+  font-size: 0.875rem;
+  color: var(--graphite);
+}
+
+/* Главный визуальный элемент: страница документа + заметка на полях */
+.specimen {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 13rem;
+  align-items: center;
+}
+
+.specimen-page {
+  position: relative;
+  padding: 40px 36px 56px;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  box-shadow: 0 1px 0 var(--rule), 0 24px 48px -32px rgba(27, 36, 48, 0.45);
+}
+
+.specimen-page p {
+  margin: 0;
+}
+
+.specimen-page mark {
+  color: inherit;
+  background: linear-gradient(transparent 12%, var(--marker) 12%, var(--marker) 88%, transparent 88%);
+  padding: 0 2px;
+}
+
+.specimen-folio {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  font-size: 0.8rem;
+  color: var(--graphite);
+}
+
+.specimen-note {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-left: -1px;
+  padding: 16px 0 16px 20px;
+  border-left: 3px solid var(--marker);
+}
+
+.specimen-q {
+  font-size: 0.9rem;
+  color: var(--graphite);
+}
+
+.specimen-a {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+/* ---------- Степпер ---------- */
+.stepper {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin: 0 0 32px;
+  padding: 0 0 16px;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.875rem;
+  color: var(--graphite);
+}
+
+.stepper li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepper-n {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  font-size: 0.75rem;
+}
+
+.stepper .current {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.stepper .current .stepper-n {
+  color: var(--action-ink);
+  background: var(--action);
+  border-color: var(--action);
+}
+
+.stepper .done .stepper-n {
+  background: var(--marker);
+  border-color: transparent;
+  color: var(--ink);
+}
+
+/* ---------- Настройки ---------- */
+.setup {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 40px;
+}
+
+.setup-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dropzone {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  min-height: 200px;
+  padding: 24px;
+  background: var(--sheet);
+  border: 1.5px dashed var(--rule);
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.dropzone input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.dropzone span {
+  color: var(--graphite);
+  font-size: 0.875rem;
+}
+
+.dropzone.dragging {
+  border-color: var(--action);
+}
+
+.dropzone.has-file {
+  border-style: solid;
+  border-left: 3px solid var(--marker);
+}
+
+.dropzone:focus-within {
+  outline: 2px solid var(--action);
+  outline-offset: 2px;
+}
+
+.field {
+  margin: 0 0 20px;
+  padding: 0;
+  border: none;
+}
+
+.field legend {
+  font-weight: 600;
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+.field .hint {
+  margin: 0 0 8px;
+}
+
+.segmented {
+  display: inline-flex;
+  flex-wrap: wrap;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.segmented label {
+  position: relative;
+  padding: 8px 16px;
+  cursor: pointer;
+  background: var(--sheet);
+}
+
+.segmented label + label {
+  border-left: 1px solid var(--rule);
+}
+
+.segmented input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.segmented label.selected {
+  color: var(--action-ink);
+  background: var(--action);
+  font-weight: 600;
+}
+
+.segmented label:focus-within {
+  outline: 2px solid var(--action);
+  outline-offset: -2px;
+}
+
+.toggle {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.toggle input {
+  margin-top: 4px;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--action);
+}
+
+.toggle small {
+  display: block;
+  color: var(--graphite);
+  font-size: 0.85rem;
+}
+
+/* ---------- Подготовка ---------- */
+.preparing {
+  max-width: 560px;
+}
+
+.stages {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+}
+
+.stages li {
+  display: flex;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+  color: var(--graphite);
+}
+
+.stages li small {
+  display: block;
+  color: var(--graphite);
+  font-size: 0.85rem;
+}
+
+.stages li.active,
+.stages li.done {
+  color: var(--ink);
+}
+
+.stage-mark {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  border: 1.5px solid var(--rule);
+  border-radius: 50%;
+}
+
+.done .stage-mark {
+  background: var(--marker);
+  border-color: transparent;
+}
+
+.active .stage-mark {
+  border-color: var(--action);
+  border-top-color: transparent;
+  animation: spin 0.9s linear infinite;
+}
+
+.failed .stage-mark {
+  border-color: var(--error);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Чат ---------- */
+.chat-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.chat-header h2 {
+  margin-bottom: 4px;
+  overflow-wrap: anywhere;
+}
+
+.chat-header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.chat-header select {
+  padding: 8px 12px;
+  font: inherit;
+  color: var(--ink);
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.msg.user {
+  align-self: flex-end;
+  max-width: 80%;
+  padding: 10px 16px;
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  white-space: pre-wrap;
+}
+
+.msg.assistant {
+  max-width: 68ch;
+  padding: 4px 0 4px 20px;
+  border-left: 3px solid var(--marker);
+}
+
+.answer {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.chip {
+  padding: 6px 12px;
+  color: var(--ink);
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-size: 0.875rem;
+  text-align: left;
+}
+
+.sources {
+  margin-top: 10px;
+  font-size: 0.875rem;
+}
+
+.sources summary {
+  cursor: pointer;
+  color: var(--action);
+}
+
+.sources ol {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+.sources li {
+  margin-bottom: 10px;
+}
+
+.sources li p {
+  margin: 2px 0 0;
+  color: var(--graphite);
+  line-height: 1.5;
+}
+
+.msg-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  font-size: 0.8rem;
+}
+
+.rating {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.rating button {
+  padding: 2px 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  filter: grayscale(1);
+  opacity: 0.6;
+}
+
+.rating button[aria-pressed="true"] {
+  filter: none;
+  opacity: 1;
+  border-color: var(--rule);
+  background: var(--sheet);
+}
+
+.thinking {
+  display: flex;
+  gap: 6px;
+  padding: 12px 20px;
+}
+
+.thinking span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--graphite);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.thinking span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.thinking span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.composer {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  padding: 12px 0;
+  background: var(--paper);
+}
+
+.composer textarea {
+  flex: 1;
+  padding: 10px 12px;
+  font: inherit;
+  color: var(--ink);
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  resize: vertical;
+}
+
+.feedback-note {
+  margin-top: 4px;
+}
+
+/* ---------- Мобильные ---------- */
+@media (max-width: 760px) {
+  .landing {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+    min-height: auto;
+  }
+
+  .specimen {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .specimen-note {
+    margin: 0 0 0 16px;
+    border-left-width: 3px;
+  }
+
+  .specimen-page {
+    padding: 28px 22px 48px;
+  }
+
+  .setup {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .msg.user {
+    max-width: 92%;
+  }
+}
